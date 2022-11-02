@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../services/auth.dart';
 
@@ -20,20 +21,36 @@ class LoginScreen extends StatelessWidget {
             ),
             Flexible(
               child: LoginButton(
+                icon: FontAwesomeIcons.google,
+                text: 'Sign in with Google',
+                color: Colors.blue,
+                loginMethod: AuthService().googleLogin,
+              ),
+            ),
+            Flexible(
+              child: LoginButton(
                 icon: FontAwesomeIcons.userNinja,
                 text: 'Continue as Guest',
                 loginMethod: AuthService().anonLogin,
                 color: Colors.deepPurple,
               ),
             ),
-            Flexible(
-              child: LoginButton(
-                icon: FontAwesomeIcons.google,
-                text: 'Sign in with Google',
-                color: Colors.blue,
-                loginMethod: AuthService().googleLogin,
-              ),
-            )
+            FutureBuilder<Object>(
+              future: SignInWithApple.isAvailable(),
+              builder: (context, snapshot) {
+                if (snapshot.data == true) {
+                  return Flexible(
+                    child: SignInWithAppleButton(
+                      onPressed: () {
+                        AuthService().signInWithApple();
+                      },
+                    ),
+                  );
+                } else {
+                  return Container();
+                }
+              },
+            ),
           ],
         ),
       ),
