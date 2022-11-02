@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>784692640087-niqpnimh4b0li4ik9pe7k501ljudggk1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.784692640087-niqpnimh4b0li4ik9pe7k501ljudggk1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD4sDu6feqki96MNJbJRWsLxmLr-hRJktA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>784692640087</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.luisfelipe998.quizapp</string>
+	<key>PROJECT_ID</key>
+	<string>fireship-flutter-course-6415a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fireship-flutter-course-6415a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:784692640087:ios:0bcd4cd87bf5ebb3dce612</string>
+</dict>
+</plist>
