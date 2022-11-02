@@ -9,6 +9,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 class AuthService {
   final userStream = FirebaseAuth.instance.authStateChanges();
   final user = FirebaseAuth.instance.currentUser;
+  final _googleSignIn = GoogleSignIn();
 
   Future<void> anonLogin() async {
     try {
@@ -20,7 +21,7 @@ class AuthService {
 
   Future<void> googleLogin() async {
     try {
-      final googleUser = await GoogleSignIn().signIn();
+      final googleUser = await _googleSignIn.signIn();
 
       if (googleUser == null) return;
 
@@ -81,5 +82,6 @@ class AuthService {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+    await _googleSignIn.signOut();
   }
 }
