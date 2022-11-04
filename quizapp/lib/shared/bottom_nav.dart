@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  final int index;
+  const BottomNavBar({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: index,
       items: const [
         BottomNavigationBarItem(
             icon: Icon(
@@ -27,17 +29,17 @@ class BottomNavBar extends StatelessWidget {
             ),
             label: "Profile"),
       ],
-      fixedColor: Colors.deepPurple[200],
+      fixedColor: Colors.white,
       onTap: (int i) {
         switch (i) {
           case 0:
-            // do nothing
+            Navigator.pushReplacementNamed(context, "/topics");
             break;
           case 1:
-            Navigator.pushNamed(context, "/about");
+            Navigator.pushReplacementNamed(context, "/about");
             break;
           case 2:
-            Navigator.pushNamed(context, "/profile");
+            Navigator.pushReplacementNamed(context, "/profile");
             break;
           default:
         }
