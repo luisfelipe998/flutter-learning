@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/routes.dart';
+import 'package:quizapp/services/services.dart';
 import 'package:quizapp/shared/shared.dart';
 import 'package:quizapp/theme.dart';
 
@@ -30,9 +32,13 @@ class _AppState extends State<App> {
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp(
-            routes: appRoutes,
-            theme: appTheme,
+          return StreamProvider(
+            create: (_) => FirestoreService().streamReport(),
+            initialData: Report(),
+            child: MaterialApp(
+              routes: appRoutes,
+              theme: appTheme,
+            ),
           );
         }
 
