@@ -42,7 +42,9 @@ class _AppState extends State<App> {
           );
         }
 
-        return const LoadingScreen();
+        return const MaterialApp(
+          home: LoadingScreen(),
+        );
       },
     );
   }
