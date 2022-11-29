@@ -1,4 +1,6 @@
 import 'package:bookingapp/utils/app_layout.dart';
+import 'package:bookingapp/widgets/column_layout.dart';
+import 'package:bookingapp/widgets/layout_builder.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -173,7 +175,121 @@ class ProfileScreen extends StatelessWidget {
               ),
             ],
           ),
-          const Text("Accumulated miles"),
+          Gap(AppLayout.getHeight(25)),
+          Text("Accumulated miles", style: Styles.headLineStyle2),
+          Gap(AppLayout.getHeight(20)),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppLayout.getWidth(15),
+              vertical: AppLayout.getHeight(15),
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(AppLayout.getHeight(18)),
+              color: Styles.bgColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade300,
+                  blurRadius: 15,
+                  spreadRadius: 5,
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Gap(AppLayout.getHeight(15)),
+                Text(
+                  "192802",
+                  style: TextStyle(
+                      fontSize: 45,
+                      color: Styles.textColor,
+                      fontWeight: FontWeight.w600),
+                ),
+                Gap(AppLayout.getHeight(20)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Miles accrued",
+                        style: Styles.headLineStyle4.copyWith(fontSize: 16)),
+                    Text("23 May 2021",
+                        style: Styles.headLineStyle4.copyWith(fontSize: 16)),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(5)),
+                Divider(color: Colors.grey.shade300, thickness: 1.5),
+                Gap(AppLayout.getHeight(5)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    ColumnLayout(
+                      firstText: "23 042",
+                      secondText: "miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+                    ColumnLayout(
+                      firstText: "Airline CO",
+                      secondText: "Received from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                const AppLayoutBuilder(sections: 12, isColor: false),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    ColumnLayout(
+                      firstText: "24",
+                      secondText: "miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+                    ColumnLayout(
+                      firstText: "McDonal's",
+                      secondText: "Received from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(12)),
+                const AppLayoutBuilder(sections: 12, isColor: false),
+                Gap(AppLayout.getHeight(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    ColumnLayout(
+                      firstText: "52 340",
+                      secondText: "miles",
+                      alignment: CrossAxisAlignment.start,
+                      isColor: false,
+                    ),
+                    ColumnLayout(
+                      firstText: "Exuma",
+                      secondText: "Received from",
+                      alignment: CrossAxisAlignment.end,
+                      isColor: false,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Gap(AppLayout.getHeight(25)),
+          InkWell(
+            onTap: () {
+              print('tapped');
+            },
+            child: Center(
+              child: Text(
+                "How to get more miles",
+                style: Styles.textStyle.copyWith(
+                    color: Styles.primaryColor, fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
         ],
       ),
     );
